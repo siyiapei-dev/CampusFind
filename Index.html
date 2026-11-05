@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CAMPUS ROOM- TRACK</title>
+
+   <!-- Room Details Popup -->
+<div class="modal" id="roomModal">
+
+    <div class="modal-content">
+
+        <button class="close-btn" id="closeModal">
+            &times;
+        </button>
+
+        <img id="modalImage" src="" alt="Room image">
+
+        <div class="modal-info">
+            <h2 id="modalTitle">Room Details</h2>
+
+            <p id="modalBuilding"></p>
+
+            <p id="modalFloor"></p>
+
+            <p id="modalType"></p>
+
+            <p id="modalDirections"></p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+   
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+     <header>
+
+     <h2>KENYATTA UNIVERSITY</h2>
+     <nav>
+     <a href="#home">Home</a>
+            <a href="#rooms">Find Rooms</a>
+            <a href="#about">About</a>
+     </nav>
+
+       </header>
+
+    <section class="hero" id="home">
+        <h1>Find Your Campus Room Easily</h1>
+        <p>Locate lecture halls, laboratories, offices and libraries.</p>
+        <a href="#rooms" class="btn">Explore Rooms</a>
+    </section>
+
+    <section class="search-section" id="rooms">
+        <h2>Find a Room</h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search room number or building..."
+        >
+
+        <div class="room-container" id="roomContainer">
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600"
+                     alt="University building">
+                <h3>Room A101</h3>
+                <p>Building: Main Lecture Block</p>
+                <p>Floor: First Floor</p>
+                <p>Type: Lecture Hall</p>
+            </div>
+          
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=600"
+                     alt="Computer laboratory">
+                <h3>Room B204</h3>
+                <p>Building: Science Block</p>
+                <p>Floor: Second Floor</p>
+                <p>Type: Computer Lab</p>
+            </div>
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=600"
+                     alt="University library">
+                <h3>Room L01</h3>
+                <p>Building: University Library</p>
+                <p>Floor: Ground Floor</p>
+                <p>Type: Library</p>
+            </div>
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600"
+                     alt="Office interior">
+                <h3>Room C305</h3>
+                <p>Building: Administration Block</p>
+                <p>Floor: Third Floor</p>
+                <p>Type: Office</p>
+            </div>
+
+        </div>
+    </section>
+
+ <!-- Interactive Campus Map -->
+<section class="campus-map-section" id="campus-map">
+
+    <h2>Explore Our Campus</h2>
+
+    <p class="map-description">
+        Select a building to discover the rooms inside it.
+    </p>
+
+    <div class="campus-map">
+
+        <div class="map-path path-one"></div>
+        <div class="map-path path-two"></div>
+
+        <button class="map-building building-one"
+            data-building="Main Lecture Block">
+            🏫
+            <span>Main Lecture Block</span>
+        </button>
+
+        <button class="map-building building-two"
+            data-building="Science Block">
+            🔬
+            <span>Science Block</span>
+        </button>
+
+        <button class="map-building building-three"
+            data-building="University Library">
+            📚
+            <span>University Library</span>
+        </button>
+
+        <button class="map-building building-four"
+            data-building="Administration Block">
+            🏢
+            <span>Administration Block</span>
+        </button>
+
+    </div>
+
+    <div class="map-instructions">
+        <p>📍 Click any building to explore its rooms.</p>
+    </div>
+
+    <div id="buildingResults" class="building-results"></div>
+
+</section><!-- Interactive Campus Map -->
+<section class="campus-map-section" id="campus-map">
+
+    <h2>Explore Our Campus</h2>
+
+    <p class="map-description">
+        Select a building to discover the rooms inside it.
+    </p>
+
+    <div class="campus-map">
+
+        <div class="map-path path-one"></div>
+        <div class="map-path path-two"></div>
+
+        <button class="map-building building-one"
+            data-building="Main Lecture Block">
+            🏫
+            <span>Main Lecture Block</span>
+        </button>
+
+        <button class="map-building building-two"
+            data-building="Science Block">
+            🔬
+            <span>Science Block</span>
+        </button>
+
+        <button class="map-building building-three"
+            data-building="University Library">
+            📚
+            <span>University Library</span>
+        </button>
+
+        <button class="map-building building-four"
+            data-building="Administration Block">
+            🏢
+            <span>Administration Block</span>
+        </button>
+
+    </div>
+
+    <div class="map-instructions">
+        <p>📍 Click any building to explore its rooms.</p>
+    </div>
+
+    <div id="buildingResults" class="building-results"></div>
+
+</section>
+
+  <!-- ADMIN DASHBOARD -->
+<section class="admin-section" id="admin">
+
+    <h2>Campus Administration</h2>
+    <p>Manage your campus room directory.</p>
+
+    <div class="admin-container">
+
+        <h3>Add a New Room</h3>
+
+        <form id="adminForm">
+
+            <input type="text" id="roomNumber"
+                placeholder="Room Number (e.g. D401)" required>
+
+            <input type="text" id="roomBuilding"
+                placeholder="Building Name" required>
+
+            <select id="roomType">
+                <option>Lecture Hall</option>
+                <option>Computer Lab</option>
+                <option>Library</option>
+                <option>Office</option>
+            </select>
+
+            <input type="text" id="roomFloor"
+                placeholder="Floor" required>
+
+            <input type="text" id="roomLocation"
+                placeholder="Room Directions" required>
+
+            <input type="url" id="roomImage"
+                placeholder="Image URL (optional)">
+
+            <button type="submit">Add Room +</button>
+
+        </form>
+
+        <h3>Manage Existing Rooms</h3>
+
+        <div id="adminRoomList"></div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <section id="about">
+        <h2>About CampusFind</h2>
+        <p>
+            CampusFind helps students locate rooms and buildings
+            within their university quickly and easily.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 CampusFind. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+
+
+    
+
+
+
+
+
+
+    
+</body>
+</html>

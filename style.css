@@ -1,0 +1,543 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7f5;
+    color: #26352d;
+}
+
+header {
+    background: #176b4a;
+    color: white;
+    padding: 20px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    font-size: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.hero {
+    background: linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ),
+    url("https://images.unsplash.com/photo-1562774053-701939374585?w=1200");
+
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 110px 20px;
+}
+
+ .hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    margin-bottom: 30px;
+}
+
+.btn {
+    background: #24a16b;
+    color: white;
+    padding: 13px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.search-section {
+    padding: 60px 7%;
+    text-align: center;
+}
+
+.search-section h2 {
+    margin-bottom: 25px;
+}
+
+#searchInput {
+    width: 80%;
+    max-width: 600px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    margin-bottom: 35px;
+}
+
+.room-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.room-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+  .room-card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+
+.room-card h3 {
+    padding: 15px;
+    color: #176b4a;
+}
+
+.room-card p {
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+#about {
+    padding: 60px 7%;
+    text-align: center;
+    background: #e5efe8;
+}
+
+#about h2 {
+    margin-bottom: 15px;
+}
+
+footer {
+    background: #163d2d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+@media (max-width: 900px) {
+    .room-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 8px;
+    }
+
+    .room-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+
+/* View Details Button */
+.view-details {
+    background: #176b4a;
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 15px;
+    font-size: 13px;
+}
+
+.view-details:hover {
+    background: #24a16b;
+}
+
+/* Room Details Popup */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    animation: appear 0.3s ease;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 25px;
+}
+
+.modal-info h2 {
+    color: #176b4a;
+    margin-bottom: 15px;
+}
+
+.modal-info p {
+    margin: 12px 0;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.close-btn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: white;
+    color: #176b4a;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* INTERACTIVE CAMPUS MAP */
+
+.campus-map-section {
+    padding: 60px 7%;
+    text-align: center;
+    background: #f0f5f0;
+}
+
+.campus-map-section h2 {
+    color: #176b4a;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.map-description {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.campus-map {
+    position: relative;
+    max-width: 850px;
+    height: 450px;
+    margin: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background:
+        linear-gradient(35deg, transparent 48%, #ffffff 49%, #ffffff 53%, transparent 54%),
+        linear-gradient(125deg, transparent 42%, #ffffff 43%, #ffffff 47%, transparent 48%),
+        #dcebdc;
+    border: 5px solid white;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.map-path {
+    position: absolute;
+    background: #c4d8c5;
+    border-radius: 30px;
+}
+
+.path-one {
+    width: 110%;
+    height: 30px;
+    top: 48%;
+    left: -5%;
+    transform: rotate(-10deg);
+}
+
+.path-two {
+    width: 30px;
+    height: 120%;
+    top: -10%;
+    left: 48%;
+    transform: rotate(15deg);
+}
+
+.map-building {
+    position: absolute;
+    z-index: 2;
+    width: 145px;
+    min-height: 85px;
+    background: #176b4a;
+    color: white;
+    border: 3px solid white;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 27px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+}
+
+.map-building span {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+.map-building:hover {
+    background: #24a16b;
+    transform: scale(1.08);
+}
+
+.building-one {
+    top: 35px;
+    left: 8%;
+}
+
+.building-two {
+    top: 35px;
+    right: 8%;
+}
+
+.building-three {
+    bottom: 35px;
+    left: 8%;
+}
+
+
+.building-four {
+    bottom: 35px;
+    right: 8%;
+}
+
+.map-instructions {
+    margin: 20px;
+    color: #176b4a;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.building-results {
+    max-width: 850px;
+    margin: 20px auto 0;
+    text-align: left;
+}
+
+.building-results h3 {
+    color: #176b4a;
+    margin-bottom: 12px;
+}
+
+.map-room {
+    background: white;
+    border-radius: 8px;
+    padding: 14px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.map-room button {
+    background: #176b4a;
+    color: white;
+    border: none;
+    padding: 9px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media(max-width: 550px) {
+    .campus-map {
+        height: 380px;
+    }
+
+    .map-building {
+        width: 125px;
+        min-height: 75px;
+    }
+
+    .map-building span {
+        font-size: 9px;
+    }
+}
+
+/* ADMIN DASHBOARD */
+
+.admin-section {
+    padding: 60px 7%;
+    background: #eaf2eb;
+    text-align: center;
+}
+
+.admin-section h2 {
+    color: #176b4a;
+    margin-bottom: 12px;
+}
+
+.admin-section > p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.admin-container {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.admin-container h3 {
+    color: #176b4a;
+    margin: 20px 0;
+}
+
+#adminForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+#adminForm input,
+#adminForm select {
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    width: 100%;
+}
+
+#adminForm button {
+    grid-column: span 2;
+    background: #176b4a;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.admin-room {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.admin-room button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 3px;
+}
+
+.edit-room {
+    background: #e5f0e8;
+    color: #176b4a;
+}
+
+.delete-room {
+    background: #ffe8e8;
+    color: #c0392b;
+}
+
+@media(max-width: 550px) {
+    #adminForm {
+        grid-template-columns: 1fr;
+    }
+
+    #adminForm button {
+        grid-column: span 1;
+    }
+
+    .admin-room {
+        flex-wrap: wrap;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
